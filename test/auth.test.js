@@ -54,7 +54,6 @@ describe("Users", () => {
         .expect(200)
         .end(function (err, res) {
           res.should.have.status(200);
-          console.log(res.body);
           res.body.status.should.equal("Successful");
           token = res.body.token;
           done();

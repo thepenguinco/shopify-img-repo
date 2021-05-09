@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// Signup
+// Signup - TODO use this instead of handling register in the API
 passport.use(
   "register",
   new localStrategy(
@@ -15,14 +15,12 @@ passport.use(
       passwordField: "password",
     },
     async (email, password, done) => {
-      
         // Validate email, password
         const user = await prisma.users.findUnique({
             where: {
                 email: email
             }
         });
-        console.log("MADE IT 2");
         if (user) {
             done({ status: 406, info: "User already exists" });
         } else {

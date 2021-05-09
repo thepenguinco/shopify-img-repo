@@ -31,7 +31,6 @@ app.post(
   "/auth/register", 
   async (req, res, next) => {
     try {
-      console.log(req.body);
       const { email, password } = req.body;
       if (!email || !password) {
         return res.sendStatus(400);
