@@ -41,6 +41,8 @@ To run the tests:
 yarn test
 ```
 
+![alt text](https://i.imgur.com/m2fmRw0.png)
+
 ## Using the Application (examples with Postman below)
 There are 2 image endpoints available:
 - GET /images
