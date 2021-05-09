@@ -45,26 +45,25 @@ yarn test
 There are 2 image endpoints available:
 - GET /images
     - Returns JSON response of all uploaded images
+    - ![alt text](https://i.imgur.com/4wDOikr.png)
+
 - POST /images/create
     - Uploads an image 
+    - ![alt text](https://i.imgur.com/KnP2t11.png)
+    - ![alt text](https://i.imgur.com/zJxtfb3.png)
 
 There are 3 authentication endpoints available:
 - POST /auth/register
     - Registers a user to use the application
+    - Make a POST request with the JSON body containing user and password
+
 - POST /auth/login
     - Logs in a user to use the application and returns a JWT auth token
+    - ![alt text](https://i.imgur.com/fLHGUnp.png)
+
 - GET /auth/status
     - Checks a JWT token to see the user authorized
-
-![alt text](https://imgur.com/zJxtfb3)
-
-https://imgur.com/KnP2t11
-
-https://imgur.com/4wDOikr
-
-https://imgur.com/fLHGUnp
-
-https://imgur.com/mWUdXvU
+    - ![alt text](https://i.imgur.com/mWUdXvU.png)
 
 ## Next Steps
 This project can support uploading and deleting of images as well as adding tags/metadata and search functionality.  The backend schema already supports a lot of new flexible features such as tags, API endpoints simply need to be created for this.  This project can also support basic role based access control so users with ADMIN permissions can perform all actions, but USERS have read-only permissions (see schema).  Again, API endpints need to be created for this.  Another extension to consider is automatically tagging the images by hooking in a ML Image Detection Classifier API.
