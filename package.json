@@ -1,7 +1,7 @@
 {
   "name": "shopify-img-repo",
   "version": "1.0.0",
-  "description": "",
+  "description": "shopify image repository",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

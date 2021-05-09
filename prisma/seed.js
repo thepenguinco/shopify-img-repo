@@ -3,8 +3,8 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function main() {
-  const admins = [{ name: "Eric L", email: "li.eric00+admin@gmail.com" }];
-  const users = [{ name: "Eric L", email: "li.eric00+user@gmail.com" }];
+  const admins = [{ name: "Admin", email: "testadmin@gmail.com" }];
+  const users = [{ name: "User", email: "testuser@gmail.com" }];
 
   const adminUpserts = [];
   for (const admin of admins) {
