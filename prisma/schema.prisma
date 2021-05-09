@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model images {
+  id           Int           @id @default(autoincrement())
+  title        String?       @db.VarChar(255)
+  contentimage String
+  description  String?
+  user_id      Int
+  created_at   DateTime      @default(now()) @db.Timestamp(6)
+  updated_at   DateTime      @default(now()) @db.Timestamp(6)
+  users        users         @relation(fields: [user_id], references: [id])
+  images_tags  images_tags[]
+}
+
+model images_tags {
+  id       Int     @id @default(autoincrement())
+  image_id Int?
+  tag_id   Int?
+  images   images? @relation(fields: [image_id], references: [id])
+  tags     tags?   @relation(fields: [tag_id], references: [id])
+
+  @@unique([image_id, tag_id], name: "images_tags_unique")
+}
+
+model tags {
+  id          Int           @id @default(autoincrement())
+  tag         String        @unique @db.VarChar(255)
+  images_tags images_tags[]
+}
+
+model users {
+  id         Int      @id @default(autoincrement())
+  name       String?  @db.VarChar(255)
+  role       role     @default(USER)
+  email      String?  @unique @db.VarChar(255)
+  password   String?  @db.VarChar(255)
+  image      String?
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @default(now()) @db.Timestamptz(6)
+  images     images[]
+}
+
+enum role {
+  USER
+  ADMIN
+}
