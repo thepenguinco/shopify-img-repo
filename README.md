@@ -1,7 +1,6 @@
 # Image Repository Application
 
 This is an Image Repository Application ExpressJS project.
-This project supports uploading and deleting of images as well as adding tags/metadata and search functionality. This project also supports role based access control so users with ADMIN permissions can perform all actions, but USERS have read-only permissions.
 
 ## General Architecture
 
@@ -35,3 +34,10 @@ yarn
 # Run locally
 yarn start
 ```
+
+To run the tests:
+
+```
+
+## Next Steps
+This project can support uploading and deleting of images as well as adding tags/metadata and search functionality.  The backend schema already supports a lot of new flexible features such as tags, API endpoints simply need to be created for this.  This project can also support basic role based access control so users with ADMIN permissions can perform all actions, but USERS have read-only permissions (see schema).  Again, API endpints need to be created for this.  Another extension to consider is automatically tagging the images by hooking in a ML Image Detection Classifier API.

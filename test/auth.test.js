@@ -4,6 +4,7 @@ let server = require("../index");
 let should = chai.should();
 let request = require("supertest");
 let session = request.agent(server);
+let uuid = require("uuid");
 
 chai.use(chaiHttp);
 
@@ -73,19 +74,19 @@ describe("Users", () => {
 
   // TODO use a mock API
   describe("/POST /auth/register", () => {
-    const currentTimeStamp = new Date().getTime();
     it("it should register the user", (done) => {
+      const random = uuid.v4();
       session
         .post("/auth/register")
         .set("content-type", "application/x-www-form-urlencoded")
         .send({
-          email: currentTimeStamp + "@user.com",
-          password: currentTimeStamp,
+          email: random + "@user.com",
+          password: uuid.v4(),
         })
         .expect("Content-Type", /json/)
         .expect(200)
         .end(function (err, res) {
-          res.body.email.should.equal(currentTimeStamp + "@user.com");
+          res.body.email.should.equal(random + "@user.com");
           done();
         });
     });

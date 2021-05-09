@@ -25,7 +25,8 @@
     "passport-local": "^1.0.0",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.3",
-    "prisma": "2.22.0"
+    "prisma": "2.22.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "chai": "^4.3.4",
